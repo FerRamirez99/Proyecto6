@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Proyecto 6: 
+# Portafolio
 
-## Getting Started
+## **Descripción:**
+Este proyecto trata de la creación de un portafolio, el cual debe ser una single-page, y contener secciónes de: about, habilidades, proyectos y contacto.
 
-First, run the development server:
+Primero se diseñó un prototipo visual simple de la aplicación.
+![Imagen del prototipo de diseño de la aplicaión](/public/readme/design.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Versión Final:
+![Imagen de la aplicaión versión desk](/public/readme/final-desk.png)
+![Imagen de la aplicaión versión mobile](/public/readme/final-mobile.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## **Features:**
+Para el desarrollo del proyecto se utilizaron diferentes tecnologías, tales como:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**Diseño**
+- Aplicación Figma: Para el desarrollo del diseño inicial de la página web.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**UI**
+- NextUI: Incorporación de componentes.
+- React-icons y Heroicons: Para la incorporación de íconos.
+- tsParticples: JavaScript particles effects.
+- TailwindCSS: Estilos.
+- Framer Motion: Animaciones.
+- React-type-animation: Animación de tipeo.
 
-## Learn More
+**Desarrollo**
+- Next.js: React Framework.
 
-To learn more about Next.js, take a look at the following resources:
+## **Objetivos:**
+1. Descripción de perfil profesional (nombre, contacto, redes profesionales).
+2. Hablar sobre habilidades, conocimientos y tecnologias.
+3. Aplicar código semántico usando Next.js.
+4. Aplicar estilos con TailwindCSS.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## **Demo:**
+A continuación, se presenta un enlace a la demo del proyecto.

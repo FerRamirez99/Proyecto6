@@ -24,10 +24,12 @@ const ParticlesBG = () => {
   const options = useMemo(
     () => ({
       fullScreen: {
-        enable: false
+        enable: false,
+        zIndex: -10
       },
       fpsLimit: 60,
       interactivity: {
+        detect_on: "canvas",
         events: {
           onHover: {
             enable: true,

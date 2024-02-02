@@ -9,7 +9,8 @@ const ContactForm = () => {
     });
     const [alertMessage, setAlertMessage] = useState(null);
     const [alertType, setAlertType] = useState(null);
-    const alertBG = alertType ? "[#59A310]" : "[#CC2F2C]"
+    const alertBG = alertType ? "border-[#59A310]" : "border-[#CC2F2C]"
+    const alertText = alertType ? "text-[#59A310]" : "text-[#CC2F2C]"
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -114,7 +115,7 @@ const ContactForm = () => {
                     Send message
                 </button>
                 <br />
-                {alertMessage && <div className={`alert bg-transparent border-2 border-${alertBG} text-${alertBG} p-2 mt-4 rounded-lg text-center`}>{alertMessage}</div>}
+                {alertMessage && <div className={`alert bg-transparent border-2 ${alertBG} ${alertText} p-2 mt-4 rounded-lg text-center`}>{alertMessage}</div>}
             </form>
         </div>
     )

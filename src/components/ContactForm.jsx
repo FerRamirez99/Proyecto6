@@ -1,58 +1,83 @@
-"use client"
-import { useState } from 'react'
+import { useState } from "react"
 
 const ContactForm = () => {
-    const [email, setEmail] = useState('')
-    const [subject, setSubject] = useState('')
-    const [message, setMessage] = useState('')
-    const [submitted, setSubmitted] = useState(false)
+    const [formData, setFormData] = useState({
+        // Your form fields here
+        email: '',
+        subject: '',
+        message: '',
+    });
+    const [alertMessage, setAlertMessage] = useState(null);
+    const [alertType, setAlertType] = useState(null);
+    const alertBG = alertType ? "[#59A310]" : "[#CC2F2C]"
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('Sending')
-        let data = {
-            email,
-            subject,
-            message
-        }
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-        fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }).then((res) => {
-            console.log('Response received')
-            try {
-                if (res.status === 200) {
-                    console.log('Response succeeded!')
-                    setSubmitted(true)
-                    setName('')
-                    setEmail('')
-                    setBody('')
-                }
-            } catch (err) {
-                console.log(err)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('/api/submitForm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Form submission successful, handle it accordingly
+                console.log('Form submitted successfully.');
+                setAlertMessage('Form submitted successfully.');
+                setAlertType(true);
+                // Clear form inputs after successful submission
+                setFormData({
+                    email: '',
+                    subject: '',
+                    message: '',
+                });
+            } else {
+                // Form submission failed, handle it accordingly
+                console.error(data.error);
+                setAlertMessage(`Error: ${data.error}.`);
+                setAlertType(false);
             }
-        })
-    }
+            // Clear the alert after 3 seconds (adjust the duration as needed)
+            setTimeout(() => {
+                setAlertMessage(null);
+                setAlertType(null);
+            }, 3000);
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            setAlertMessage('Error submitting form.');
+            setAlertType(false);
 
+            // Clear the alert after 3 seconds (adjust the duration as needed)
+            setTimeout(() => {
+                setAlertMessage(null);
+                setAlertType(null);
+            }, 3000);
+        }
+    };
     return (
         <div className="flex justify-center items-center border-white">
-            <form className="sm:w-3/6 border-white">
+            <form className="sm:w-3/6 border-white" onSubmit={handleSubmit}>
                 <div className="mb-6">
                     <label htmlFor="email" className="text-white block mb-2 text-sm font-medium">
                         Email
                     </label>
                     <input
                         type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         id="email"
                         required
                         className="bg-[#18191E] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                         placeholder="example@gmail.com"
-                        onChange={(e) => { setEmail(e.target.value) }}
                     />
                 </div>
                 <div className="mb-6">
@@ -62,10 +87,12 @@ const ContactForm = () => {
                     <input
                         type="text"
                         id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
                         required
                         className="bg-[#18191E] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                         placeholder="Hello"
-                        onChange={(e) => { setSubject(e.target.value) }}
                     />
                 </div>
                 <div className="mb-6">
@@ -73,18 +100,21 @@ const ContactForm = () => {
                     <textarea
                         name="message"
                         id="message"
+                        value={formData.message}
+                        onChange={handleChange}
                         className="bg-[#18191E] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                         placeholder="Let&apos;s talk"
-                        onChange={(e) => { setMessage(e.target.value) }}
+                        required
                     />
                 </div>
                 <button
                     type="submit"
                     className="bg-primary hover:bg-secondary text-white font-medium py-2.5 px-5 rounded-lg w-full"
-                    onClick={(e) => { handleSubmit(e) }}
                 >
                     Send message
                 </button>
+                <br />
+                {alertMessage && <div className={`alert bg-transparent border-2 border-${alertBG} text-${alertBG} p-2 mt-4 rounded-lg text-center`}>{alertMessage}</div>}
             </form>
         </div>
     )

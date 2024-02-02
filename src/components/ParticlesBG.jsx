@@ -23,9 +23,9 @@ const ParticlesBG = () => {
 
   const options = useMemo(
     () => ({
-    //   fullScreen: {
-    //     enable: false
-    //   },
+      fullScreen: {
+        enable: false
+      },
       fpsLimit: 60,
       interactivity: {
         events: {
@@ -37,7 +37,7 @@ const ParticlesBG = () => {
       },
       particles: {
         links: {
-          distance: 150,
+          distance: 200,
           enable: true,
           opacity: 0.5,
           width: 1,

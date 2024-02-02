@@ -58,7 +58,7 @@ const AboutSection = () => {
           className="mt-4 md:mt-0 text-left flex flex-col h-full"
         >
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">
+          <p className="text-base">
             Hello! I am a full-stack web developer with a keen eye for detail and am passionate about creating seamless, user-friendly, responsive web applications. With a strong foundation in front-end and back-end technologies, I have experience with JavaScript, React, Node.js, Express, MongoDB, HTML, and CSS, among others. I am a quick learner, and I am looking forward to expanding my knowledge and skill set.
           </p>
           <div className="mt-2">

@@ -8,6 +8,20 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: 'Portfolio',
   description: 'Project 6: Portfolio',
+  icons: {
+    icon: [
+      {
+        media: '(prefers-color-scheme: light)',
+        url: '/images/icon-light.ico',
+        href: '/images/icon-light.ico',
+      },
+      {
+        media: '(prefers-color-scheme: dark)',
+        url: '/images/icon.ico',
+        href: '/images/icon-dark.ico',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -17,7 +31,7 @@ export default function RootLayout({ children }) {
         <Provider>
           <Socials />
           {children}
-        </Provider>   
+        </Provider>
       </body>
     </html>
   );

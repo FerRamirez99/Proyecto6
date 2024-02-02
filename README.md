@@ -2,14 +2,14 @@ Proyecto 6:
 # Portafolio
 
 ## **Descripción:**
-Este proyecto trata de la creación de un portafolio, el cual debe ser una single-page, y contener secciónes de: about, habilidades, proyectos y contacto.
+Este proyecto trata de la creación de un portafolio, el cual debe ser una single-page, y contener secciones de: about, habilidades, proyectos y contacto.
 
 Primero se diseñó un prototipo visual simple de la aplicación.
-![Imagen del prototipo de diseño de la aplicaión](/public/readme/design.png)
+![Imagen del prototipo de diseño de la aplicación](/public/readme/design.png)
 
 Versión Final:
-![Imagen de la aplicaión versión desk](/public/readme/final-desk.png)
-![Imagen de la aplicaión versión mobile](/public/readme/final-mobile.png)
+![Imagen de la aplicación versión desk](/public/readme/final-desk.png)
+![Imagen de la aplicación versión mobile](/public/readme/final-mobile.png)
 
 ## **Features:**
 Para el desarrollo del proyecto se utilizaron diferentes tecnologías, tales como:
@@ -27,10 +27,11 @@ Para el desarrollo del proyecto se utilizaron diferentes tecnologías, tales com
 
 **Desarrollo**
 - Next.js: React Framework.
+- Nodemail: Módulo para enviar emails.
 
 ## **Objetivos:**
 1. Descripción de perfil profesional (nombre, contacto, redes profesionales).
-2. Hablar sobre habilidades, conocimientos y tecnologias.
+2. Hablar sobre habilidades, conocimientos y tecnologías.
 3. Aplicar código semántico usando Next.js.
 4. Aplicar estilos con TailwindCSS.
 

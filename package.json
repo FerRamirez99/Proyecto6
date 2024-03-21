@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "i18nexus pull && next dev",
+    "build": "i18nexus pull && next build",
+    "start": "i18nexus pull && next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -13,10 +13,14 @@
     "@nextui-org/react": "^2.2.9",
     "@tsparticles/react": "^3.0.0",
     "framer-motion": "^11.0.3",
+    "i18next": "^23.10.1",
+    "i18next-resources-to-backend": "^1.2.0",
     "next": "14.1.0",
+    "next-i18n-router": "^5.3.1",
     "nodemailer": "^6.9.9",
     "react": "^18",
     "react-dom": "^18",
+    "react-i18next": "^14.1.0",
     "react-icons": "^5.0.1",
     "react-type-animation": "^3.2.0",
     "tsparticles": "^3.2.1"
@@ -25,6 +29,7 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
+    "i18nexus-cli": "^3.3.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0"
   }

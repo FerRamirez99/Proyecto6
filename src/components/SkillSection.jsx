@@ -2,6 +2,7 @@
 import { Card, CardFooter } from "@nextui-org/react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslation } from 'react-i18next';
 
 const skills = [
     { name: "JavaScript", icon: "js.svg" },
@@ -20,9 +21,11 @@ const skills = [
 ]
 
 const SkillSection = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="py-8 px-2 xl:gap-16 sm:py-16 xl:px-16 ">
-            <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">Skills</h2>
+            <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">{t('skills_title')}</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-8 md:gap-12 ">
                 {skills.map((skill, index) => (
                     <motion.div

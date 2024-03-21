@@ -3,62 +3,66 @@ import { useState, useRef } from "react"
 import ProjectCard from "./ProjectCard"
 import ProjectTag from "./ProjectTag"
 import { motion, useInView } from "framer-motion"
-
-const projects = [
-    {
-        id: 1,
-        title: "Landing Page",
-        description: "Landing page for a jewelry store, showing the products, categories, services provided and location.",
-        image: "/images/project1.png",
-        tag: ["All", "HTML", "Responsive"],
-        gitURL: "https://github.com/FerRamirez99/Proyecto1",
-        pageURL: "https://ferramirez99.github.io/Proyecto1/",
-        tech: ["HTML ", "CSS "]
-    },
-    {
-        id: 2,
-        title: "CRUD Application",
-        description: "Application to keep book records digitally using the 4 CRUD operations, through a form and table.",
-        image: "/images/project2.png",
-        tag: ["All", "HTML", "JavaScript", "Responsive"],
-        gitURL: "https://github.com/FerRamirez99/Proyecto2",
-        pageURL: "https://ferramirez99.github.io/Proyecto2/",
-        tech: ["HTML ", "CSS ", "JavaScript "]
-    },
-    {
-        id: 3,
-        title: "Dashboard",
-        description: "Web page with a dashboard showind data collected from a weather API displayed through graphs.",
-        image: "/images/project3.png",
-        tag: ["All", "HTML", "JavaScript"],
-        gitURL: "https://github.com/FerRamirez99/Proyecto3",
-        pageURL: "https://ferramirez99.github.io/Proyecto3/",
-        tech: ["HTML ", "CSS ", "JavaScript "]
-    },
-    {
-        id: 4,
-        title: "Restaurant Application",
-        description: "Web application for a restaurant that includes a home page, information page, menu and reservation section.",
-        image: "/images/project4.png",
-        tag: ["All", "React", "Firebase", "Responsive"],
-        gitURL: "https://github.com/FerRamirez99/Proyecto4",
-        pageURL: "https://super-pika-a4c814.netlify.app/",
-        tech: ["React ", "Firebase "]
-    },
-    {
-        id: 5,
-        title: "E-Commerce",
-        description: "E-commerce application for surf products with login, cart and payment gateway; plus backend that connects with the frontend.",
-        image: "/images/project5.png",
-        tag: ["All", "React", "MongoDB", "Responsive"],
-        gitURL: "https://github.com/FerRamirez99/Proyecto5-Ecommerce-Front",
-        pageURL: "https://fabulous-genie-b3ac69.netlify.app/",
-        tech: ["React ", "MongoDB ", "Express "]
-    }
-]
+import { useTranslation } from 'react-i18next'
 
 const ProjectSection = () => {
-    const [tag, setTag] = useState("All")
+    const { t } = useTranslation()
+    const all_tag = `${t('project_tag_1')}`
+
+    const projects = [
+        {
+            id: 1,
+            title: `${t('pr1_title')}`,
+            description: `${t('pr1_desc')}`,
+            image: "/images/project1.png",
+            tag: [all_tag, "HTML", "Responsive"],
+            gitURL: "https://github.com/FerRamirez99/Proyecto1",
+            pageURL: "https://ferramirez99.github.io/Proyecto1/",
+            tech: ["HTML ", "CSS "]
+        },
+        {
+            id: 2,
+            title: `${t('pr2_title')}`,
+            description: `${t('pr2_desc')}`,
+            image: "/images/project2.png",
+            tag: [all_tag, "HTML", "JavaScript", "Responsive"],
+            gitURL: "https://github.com/FerRamirez99/Proyecto2",
+            pageURL: "https://ferramirez99.github.io/Proyecto2/",
+            tech: ["HTML ", "CSS ", "JavaScript "]
+        },
+        {
+            id: 3,
+            title: `${t('pr3_title')}`,
+            description: `${t('pr3_desc')}`,
+            image: "/images/project3.png",
+            tag: [all_tag, "HTML", "JavaScript"],
+            gitURL: "https://github.com/FerRamirez99/Proyecto3",
+            pageURL: "https://ferramirez99.github.io/Proyecto3/",
+            tech: ["HTML ", "CSS ", "JavaScript "]
+        },
+        {
+            id: 4,
+            title: `${t('pr4_title')}`,
+            description: `${t('pr4_desc')}`,
+            image: "/images/project4.png",
+            tag: [all_tag, "React", "Firebase", "Responsive"],
+            gitURL: "https://github.com/FerRamirez99/Proyecto4",
+            pageURL: "https://super-pika-a4c814.netlify.app/",
+            tech: ["React ", "Firebase "]
+        },
+        {
+            id: 5,
+            title: `${t('pr5_title')}`,
+            description: `${t('pr5_desc')}`,
+            image: "/images/project5.png",
+            tag: [all_tag, "React", "MongoDB", "Responsive"],
+            gitURL: "https://github.com/FerRamirez99/Proyecto5-Ecommerce-Front",
+            pageURL: "https://fabulous-genie-b3ac69.netlify.app/",
+            tech: ["React ", "MongoDB ", "Express "]
+        }
+    ]
+
+    const [tag, setTag] = useState(all_tag)
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true })
 
@@ -80,8 +84,8 @@ const ProjectSection = () => {
             <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
                 <ProjectTag
                     onClick={handleTag}
-                    name="All"
-                    isSelected={tag === "All"}
+                    name={all_tag}
+                    isSelected={tag === all_tag}
                 />
                 <ProjectTag
                     onClick={handleTag}
@@ -97,12 +101,12 @@ const ProjectSection = () => {
             <ul ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                 {
                     filteredProjects.map((project, index) =>
-                        <motion.li 
-                            key={index} 
-                            variants={cardVariants} 
-                            initial="initial" 
+                        <motion.li
+                            key={index}
+                            variants={cardVariants}
+                            initial="initial"
                             animate={isInView ? "animate" : "initial"}
-                            transition={{duration: 0.3, delay: index * 0.4}}
+                            transition={{ duration: 0.3, delay: index * 0.4 }}
                         >
                             <ProjectCard
                                 key={project.id}

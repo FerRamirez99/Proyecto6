@@ -2,8 +2,13 @@
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import ParticlesBG from "./ParticlesBG";
+import { useTranslation } from 'react-i18next';
 
 const HeroSection = () => {
+    const { t } = useTranslation();
+    const t1 = `${t('welcome_2')}`
+    const t2 = `${t('welcome_3')}`
+
     return (
         <section id="home">
             <div className="absolute">
@@ -17,7 +22,7 @@ const HeroSection = () => {
                     className="place-self-center text-center sm:text-left md:justify-self-start sm:p-12 lg:p-24 px-0"
                 >
                     <h1 className="text-white text-2xl sm:text-3xl lg:text-5xl lg:leading-snug font-extrabold">
-                        <span className="">Hello, I&apos;m</span>
+                        <span className="">{t('welcome_1')}</span>
                         <br />
                         <span className="text-primary text-4xl sm:text-5xl lg:text-7xl mb-4">
                             Fernanda Ramírez Sancristoful
@@ -25,11 +30,11 @@ const HeroSection = () => {
                         <br />
                         <TypeAnimation
                             sequence={[
-                                'Web Developer',
+                                {t1},
                                 500,
-                                'Web Developer, Designer',
+                                `${t1}, ${t2}`,
                                 500,
-                                'Web Developer',
+                                {t1},
                                 500,
                                 '',
                                 500,

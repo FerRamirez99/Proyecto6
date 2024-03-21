@@ -64,7 +64,7 @@ const AboutSection = () => {
             {t('about_desc')}
           </p>
           <div className="mt-2">
-            <Link href={"/docs/CV.pdf"} target={"_blank"} download={true}>
+            <Link href={"/docs/CV_Fernanda_Ramirez.pdf"} target={"_blank"} download={true}>
               <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#00FF5B] to-[#0014FF] hover:bg-slate-800 text-white mt-3">
                 <span className="block bg-[#181818] hover:bg-slate-800 rounded-full px-5 py-2">{t('about_button')}</span>
               </button>

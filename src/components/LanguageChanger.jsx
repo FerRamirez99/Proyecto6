@@ -5,10 +5,6 @@ import { usePathname } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import i18nConfig from '../../i18nConfig'
 
-// import Image from 'next/image'
-// import lng1 from "../../public/language-icons/spanish.svg"
-// import lng2 from "../../public/language-icons/english.svg"
-
 const LanguageChanger = () => {
     const { t } = useTranslation();
     const { i18n } = useTranslation();
@@ -46,15 +42,9 @@ const LanguageChanger = () => {
                 onChange={handleChange} 
                 value={currentLocale}
                 id='language'
-                className="text-sm rounded-md p-2 bg-[#181818] border-1 border-white placeholder-gray-400 text-white focus:primary focus:border-primary"
+                className="text-sm rounded-md p-2 bg-[#181818] border-1 border-[#ADB7BE] placeholder-gray-400 text-[#ADB7BE] hover:text-white hover:border-white "
             >
-                <option value="es">
-                    {/* <Image 
-                        src="../../public/language-icons/spanish.svg"
-                        width={20}
-                         height={20} 
-                        alt='Spanish language icon'     
-                    />*/}{t('lang_option_1')}</option> 
+                <option value="es">{t('lang_option_1')}</option> 
                 <option value="en">{t('lang_option_2')}</option>
             </select>
         </>

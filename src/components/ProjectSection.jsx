@@ -80,7 +80,7 @@ const ProjectSection = () => {
 
     return (
         <section id="projects" className="md:mx-4 md:px-12">
-            <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-3">My Projects</h2>
+            <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-3">{t('projects_title')}</h2>
             <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
                 <ProjectTag
                     onClick={handleTag}

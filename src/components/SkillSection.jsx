@@ -17,7 +17,11 @@ const skills = [
     { name: "Git", icon: "git.svg" },
     { name: "HTML", icon: "html5.svg" },
     { name: "CSS", icon: "css3.svg" },
-    { name: "Figma", icon: "figma.svg" }
+    { name: "Figma", icon: "figma.svg" },
+    { name: "Illustrator", icon: "illustrator.svg" },
+    { name: "Premiere Pro", icon: "premiere.svg" },
+    { name: "Photoshop", icon: "photoshop.svg" },
+    { name: "After Effects", icon: "after-effects.svg" }
 ]
 
 const SkillSection = () => {

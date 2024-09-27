@@ -6,10 +6,9 @@ import { useTranslation } from 'react-i18next'
 
 import { motion } from "framer-motion"
 import { fadeIn } from "./utils/motionTransition"
-import Link from "next/link"
 
 const AboutSection = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [tab, setTab] = useState("education")
   const [isPending, startTransition] = useTransition()
 
@@ -32,6 +31,19 @@ const AboutSection = () => {
       )
     },
   ]
+
+  const downloadFile = () => {
+    const language = i18n.language;
+    let fileURL = '';
+
+    if (language === "en") {
+      fileURL = '/docs/CV_Fernanda_Ramirez_EN.pdf'
+    } else if (language === "es") {
+      fileURL = '/docs/CV_Fernanda_Ramirez_ES.pdf'
+    }
+
+    window.open(fileURL, '_blank')
+  }
 
   const handleChange = (id) => {
     startTransition(() => {
@@ -64,11 +76,9 @@ const AboutSection = () => {
             {t('about_desc')}
           </p>
           <div className="mt-2">
-            <Link href={"/docs/CV_Fernanda_Ramirez.pdf"} target={"_blank"} download={true}>
-              <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#00FF5B] to-[#0014FF] hover:bg-slate-800 text-white mt-3">
-                <span className="block bg-[#181818] hover:bg-slate-800 rounded-full px-5 py-2">{t('about_button')}</span>
-              </button>
-            </Link>
+            <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-[#00FF5B] to-[#0014FF] hover:bg-slate-800 text-white mt-3" onClick={downloadFile}>
+              <span className="block bg-[#181818] hover:bg-slate-800 rounded-full px-5 py-2">{t('about_button')}</span>
+            </button>
           </div>
           <div className="flex flex-row mt-8">
             <TabButton
